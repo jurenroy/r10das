@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Dashboard</title>
+{% endblock %}
+
+{% block sidebar_user %}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="{% static 'resources/img/user.png' %}" class="img-circle elevation-2" alt="User Image">
+    </div>
+
+    <div class="info">
+        <a href="#" class="d-block">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div>
+            <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid py-2">
+        <div class="row">
+            <!-- All documents -->
+            <div class="col-lg-3">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3></h3>
+                        <p>Documents</p>
+                    </div>
+
+                    <div class="icon">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    
+                    <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+            <!-- RSOs -->
+            <div class="col-lg-3">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3></h3>
+                        <p>Regional Special Orders</p>
+                    </div>
+
+                    <div class="icon">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    
+                    <a href="{% url 'list-rso' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
