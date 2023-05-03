@@ -10,7 +10,6 @@ class RSOForm(ModelForm):
         self.fields['rso_signatory'].queryset = Personnel.objects.select_related('user').filter(signatory = True)
         self.fields['rso_signatory'].label_from_instance = self.label_from_instance
 
-
     @staticmethod
     def label_from_instance(self):
         name = f"{ self.user.last_name }, { self.user.first_name } { self.personnel_mi }"
@@ -19,3 +18,7 @@ class RSOForm(ModelForm):
     class Meta:
         model = RSO
         fields = '__all__'
+
+        widgets = {
+            
+        }
