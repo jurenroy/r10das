@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+</style>
+<title>Insert new RSO/SO</title>
+{% endblock %}
+
+{% block sidebar_user %}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="{% static 'resources/img/user.png' %}" class="img-circle elevation-2" alt="User Image">
+    </div>
+
+    <div class="info">
+        <a href="#" class="d-block">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Regional Special Orders</h1>
+            </div>
+            <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid py-2">
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ rso_form.rso_number | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_date | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_subject | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_scheduled_dates_from | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_scheduled_dates_to | as_crispy_field }}
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="personnel_assigned">Personnel Assigned</label>
+                        <select name="personnel_assigned" id="personnel_assigned" class="form-control" multiple>
+                            <option value="">---- Please select personnel assigned to SO ----</option>
+                            {% for emp in personnels %}
+                            <option value="{{ emp.id }}">{{ emp.user.last_name }}, {{ emp.user.first_name }} {{ emp.personnel_mi }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_signatory | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_remarks | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ rso_form.rso_scan_copy | as_crispy_field }}
+                    </div>
+                    
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#personnel_assigned').multiselect()
+    })
+</script>
+{% endblock %}
