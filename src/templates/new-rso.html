@@ -43,7 +43,7 @@
 
 <section class="content">
     <div class="container-fluid py-2">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'new-rso' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             <div class="row">
@@ -80,7 +80,7 @@
                         <label for="personnel_assigned">Personnel Assigned</label>
                         <select name="personnel_assigned" id="personnel_assigned" class="form-control" multiple>
                             {% for emp in personnels %}
-                            <option value="{{ emp.id }}">{{ emp.user.last_name }}, {{ emp.user.first_name }} {{ emp.personnel_mi }}</option>
+                            <option value="{{ emp.id }}">{{ emp.last_name }}, {{ emp.first_name }} {{ emp.personnel.personnel_mi }}</option>
                             {% endfor %}
                         </select>
                     </div>
