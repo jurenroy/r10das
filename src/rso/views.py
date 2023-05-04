@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .forms import *
 from rso.models import rso_assinged_personnel
+# from das.decorators 
 
 # Create your views here.
 def list_of_rso(request):
     context = {}
 
-    return render(request, 'list-rso.html', context)
+    return render(request, 'list-rso-admin.html', context)
 
 def new_rso(request):
     rso_form = RSOForm()

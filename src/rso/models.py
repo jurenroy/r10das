@@ -10,7 +10,7 @@ class RSO(models.Model):
     rso_scheduled_dates_to      = models.DateField(default=None, blank=False, null=False, verbose_name="To")
     rso_signatory               = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Signatory")
     rso_remarks                 = models.TextField(default=None, blank=True, null=True, verbose_name="Remarks")
-    rso_scan_copy               = models.FileField(upload_to="", default=None, blank=False, null=False, verbose_name="Scanned Copy")
+    rso_scan_copy               = models.FileField(upload_to="media/", default=None, blank=False, null=False, verbose_name="Scanned Copy")
 
     class Meta:
         verbose_name_plural = "RSO"

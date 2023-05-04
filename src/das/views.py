@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse
+from django.contrib.auth import authenticate, login
 import sweetify
 
+from .decorators import unauthenticated_user
+
+@unauthenticated_user
 def signin(request):
     context = {}
-
-    if request.user.is_authenticated:
-        return redirect(reverse("dashboard"))
 
     if request.POST:
         user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
