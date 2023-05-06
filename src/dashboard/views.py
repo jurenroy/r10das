@@ -5,7 +5,7 @@ from das.decorators import allowed_users
 
 # Create your views here.
 @login_required(login_url="login")
-@allowed_users(allowed_roles=['admin', 'users'])
+@allowed_users(allowed_roles=['admin', 'users', 'subadmin'])
 def dashboard(request):
     context = {}
 

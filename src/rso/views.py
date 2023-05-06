@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
 from rso.models import rso_assinged_personnel
 # from das.decorators 
 
 # Create your views here.
 def list_of_rso(request):
-    context = {}
+    rsos = RSO.objects.all()
 
-    return render(request, 'list-rso-admin.html', context)
+    context = {
+        'rsos': rsos
+    }
+
+    return render(request, 'list-rso.html', context)
 
 def new_rso(request):
     rso_form = RSOForm()
@@ -19,8 +23,9 @@ def new_rso(request):
             rso_form_save = rso_form.save()
             for emp in request.POST.getlist('personnel_assigned'):
                 employee = User.objects.get(id = emp)
-                print(employee)
                 rso_assinged_personnel.objects.create(rso = rso_form_save, employee = employee)
+
+            return redirect('dashboard')
 
     context = {
         'rso_form': rso_form,

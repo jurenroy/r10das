@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_tags %}
 
 {% block title %}
 <style>
-#rso_table thead th
+#rso_table thead th,
+#rso_table tbody td
 {
     text-align: center;
 }
@@ -58,9 +60,27 @@
                         <th>Scheduled Date(s)</th>
                         <th>Signatory</th>
                         <th>Remarks</th>
+                        {% if request.user|user_group == "admin" %}
                         <th>Actions</th>
+                        {% endif %}
                     </tr>
                 </thead>
+                <tbody>
+                    {% for rso in rsos %}
+                    <tr>
+                        <td>{{ rso.rso_date }}</td>
+                        <td><a href="{{ rso.rso_scan_copy.url }}" target="__blank">{{ rso.rso_number }}</a></td>
+                        <td>{{ rso.rso_subject }}</td>
+                        <td>{{ rso | get_assigned_personnel }}</td>
+                        <td>{{ rso.rso_scheduled_dates_from }} - {{ rso.rso_scheduled_dates_to }} </td>
+                        <td>{{ rso.rso_signatory.last_name }}, {{ rso.rso_signatory.first_name }} {{ rso.rso_signatory.personnel.personnel_mi }}</td>
+                        <td>{{ rso.rso_remarks | empty  }}</td>
+                        {% if request.user|user_group == "admin" %}
+                        <td></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>

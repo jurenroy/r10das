@@ -1,8 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from django.db.models import F
 from .models import *
-from personnel.models import Personnel
 
 class RSOForm(ModelForm):
     def __init__(self, *args, **kwargs):
