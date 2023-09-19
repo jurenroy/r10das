@@ -24,6 +24,7 @@ urlpatterns = [
     path('', signin, name="login"),
     path('', include('dashboard.urls')),
     path('rso/', include('rso.urls')),
+    path('to/', include('to.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

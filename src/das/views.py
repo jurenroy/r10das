@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 import sweetify
-
 from .decorators import unauthenticated_user
 
 @unauthenticated_user

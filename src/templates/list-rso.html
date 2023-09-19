@@ -45,9 +45,11 @@
 
 <section class="content">
     <div class="container-fluid py-2">
+        {% if request.user|user_group == "admin" %}
         <div class="col-md-12 mb-3">
             <a href="{% url 'new-rso' %}" class="btn btn-info"><i class="fa fa-plus"></i> Insert new RSO/SO</a>
         </div>
+        {% endif %}
 
         <div class="col-md-12">
             <table class="table table-striped table-bordered" id="rso_table">
@@ -76,7 +78,10 @@
                         <td>{{ rso.rso_signatory.last_name }}, {{ rso.rso_signatory.first_name }} {{ rso.rso_signatory.personnel.personnel_mi }}</td>
                         <td>{{ rso.rso_remarks | empty  }}</td>
                         {% if request.user|user_group == "admin" %}
-                        <td></td>
+                        <td>
+                            <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil-alt"></i></button>
+                            <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                        </td>
                         {% endif %}
                     </tr>
                     {% endfor %}
@@ -90,7 +95,12 @@
 {% block scripts %}
 <script>
     $(document).ready(function() {
-        $('#rso_table').DataTable()
+        var table = $('#rso_table').DataTable();
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     })
 </script>
 {% endblock %}
