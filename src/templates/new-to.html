@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<style>
+.multiselect-container {
+    width: 100% !important;
+}
+</style>
+<title>Insert new TO</title>
+{% endblock %}
+
+{% block sidebar_user %}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="{% static 'resources/img/user.png' %}" class="img-circle elevation-2" alt="User Image">
+    </div>
+
+    <div class="info">
+        <a href="#" class="d-block">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Travel Orders</h1>
+            </div>
+            <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid py-2">
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    To no
+                    Name
+                    position
+                    division/section
+                    official station
+                </div>
+
+                <div class="col-md-6">
+                    rso date
+                    date departure
+                    date arrival
+                    destination
+                    purpose
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#personnel_assigned').multiselect({
+            buttonWidth: '100%',
+        });
+    })
+</script>
+{% endblock %}

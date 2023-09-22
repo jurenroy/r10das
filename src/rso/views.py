@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.core import serializers
 from .forms import *
 from rso.models import rso_assinged_personnel
 from das.decorators import allowed_users

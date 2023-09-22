@@ -23,6 +23,7 @@ class Personnel(models.Model):
     personnel_mi = models.CharField(max_length=150, default=None, blank=True, null=True, verbose_name="Middlename/M.I")
     personnel_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
     personnel_section = models.ForeignKey(Section, on_delete=models.DO_NOTHING)
+    personnel_position = models.CharField(max_length=250, default=None, blank=False, null=True, verbose_name="Position/Designation")
     signatory = models.BooleanField(default=False)
 
     def __str__(self):

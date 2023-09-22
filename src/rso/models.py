@@ -1,9 +1,10 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 
 # Create your models here.
 def rso_upload_path(instance, filename):
-    return "/".join(['media', instance.rso_number, filename])
+    return "/".join(['media/rso', instance.rso_number, filename])
 
 class RSO(models.Model):
     rso_number                  = models.CharField(primary_key=True, default=None, blank=False, null=False, max_length=100, verbose_name="RSO Number")
@@ -23,4 +24,4 @@ class rso_assinged_personnel(models.Model):
     employee    = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Personnel")
 
     class Meta:
-        verbose_name_plural = "Assigned Personnel"
+        verbose_name_plural = "Assigned Personnel - RSO"
