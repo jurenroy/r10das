@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load custom_tags %}
+{% load custom_tags_to %}
 
 {% block title %}
 <style>
@@ -67,15 +67,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <td>####-####</td>
-                    <td>Gaudencio L. Paulma, Jr.</td>
-                    <td>Engineer IV, OIC Chief MLSS</td>
-                    <td>MMD</td>
-                    <td>MGB-X</td>
-                    <td>September 8, 2023</td>
-                    <td>September 11, 2023 - September 11, 2023</td>
-                    <td>Provincial Capitol Compound, CDO</td>
-                    <td>To attend Provincial Mining Regulatory Board of Misamis Oriental special meeting on September 11, 2023 in Provincial Capitol Compound, CDOC</td>
+                    {% for to in tos %}
+                    <tr>
+                        <td>
+                            <a href="{{ to.to_scan_copy.url }}" target="_blank">
+                                {{ to.to_number }}
+                            </a>
+                        </td>
+                        <td>{{ to | get_personnel_info:"name" }}</td>
+                        <td>{{ to | get_personnel_info:"position" }}</td>
+                        <td>{{ to | get_personnel_info:"division" }}</td>
+                        <td>{{ to | get_personnel_info:"station" }}</td>
+                        <td>{{ to.to_date }}</td>
+                        <td>{{ to | travel_date }}</td>
+                        <td>{{ to.to_destination }}</td>
+                        <td>{{ to.to_purpose }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

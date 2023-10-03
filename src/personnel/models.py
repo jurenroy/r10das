@@ -24,6 +24,7 @@ class Personnel(models.Model):
     personnel_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
     personnel_section = models.ForeignKey(Section, on_delete=models.DO_NOTHING)
     personnel_position = models.CharField(max_length=250, default=None, blank=False, null=True, verbose_name="Position/Designation")
+    personnel_station = models.CharField(max_length=150, default="MGB-X Regional Office", blank=True, null=False, verbose_name="Official Station")
     signatory = models.BooleanField(default=False)
 
     def __str__(self):

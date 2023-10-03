@@ -43,26 +43,61 @@
 
 <section class="content">
     <div class="container-fluid py-2">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'new-to' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             <div class="row">
                 <div class="col-md-6">
-                    To no
-                    Name
-                    position
-                    division/section
-                    official station
+                    <div class="form-group">
+                        {{ to_form.to_number | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.personnel | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.position | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.division | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.station | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.to_date | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.to_departure | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.to_arrival | as_crispy_field }}
+                    </div>
                 </div>
 
                 <div class="col-md-6">
-                    rso date
-                    date departure
-                    date arrival
-                    destination
-                    purpose
+                    <div class="form-group">
+                        {{ to_form.to_destination | as_crispy_field }}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ to_form.to_purpose | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ to_form.to_scan_copy | as_crispy_field }}
+                    </div>
                 </div>
             </div>
+
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            <button type="reset" class="btn btn-warning"><i class="fa fa-times"></i> Cancel</button>
 
         </form>
     </div>
@@ -72,8 +107,18 @@
 {% block scripts %}
 <script>
     $(document).ready(function () {
-        $('#personnel_assigned').multiselect({
-            buttonWidth: '100%',
+        $('#id_personnel').on('change', function() {
+            let id = $('#id_personnel').val();
+
+            $.ajax({
+                type: "GET",
+                url: "{% url 'personnel-data' %}?id=" + id +"",
+                success: function(response) {
+                    $('#id_division').val(response.personnel_division.division);
+                    $('#id_position').val(response.personnel_position);
+                    $('#id_station').val(response.personnel_station);
+                }
+            });
         });
     })
 </script>
