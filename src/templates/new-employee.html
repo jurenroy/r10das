@@ -1,16 +1,9 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
-{% load custom_tags %}
 
 {% block title %}
-<style>
-#rso_table thead th,
-#rso_table tbody td
-{
-    text-align: center;
-}
-</style>
-<title>List of Employees</title>
+<title>New Employee</title>
 {% endblock %}
 
 {% block sidebar_user %}
@@ -30,7 +23,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Mines and Geosciences Bureau - X List of Employees</h1>
+                <h1 class="m-0">Add new employee</h1>
             </div>
             <!-- <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -45,20 +38,14 @@
 
 <section class="content">
     <div class="container-fluid py-2">
-        {% if request.user|user_group == "admin" %}
-        <div class="col-md-12 mb-3">
-            <a href="{% url 'add-employee' %}" class="btn btn-info"><i class="fa fa-plus"></i> Add New Employee</a>
-        </div>
-        {% endif %}
-        
+
     </div>
 </section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    $(document).ready(function() {
-
+    $(document).ready(function () {
     })
 </script>
 {% endblock %}
