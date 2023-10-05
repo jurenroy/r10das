@@ -38,7 +38,67 @@
 
 <section class="content">
     <div class="container-fluid py-2">
+        <form action="{% url 'add-employee' %}">
+            {% csrf_token %}
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ personnel_form.id_number | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.first_name | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.middlename | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.last_name | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.suffix | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.groups | as_crispy_field }}
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ personnel_form.division | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.section | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.position | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.designation | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.official_station | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.signatory | as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            <button type="reset" class="btn btn-warning"><i class="fa fa-times"></i> Cancel</button>
+
+        </form>
     </div>
 </section>
 {% endblock %}
