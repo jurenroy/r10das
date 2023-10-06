@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load custom_tags %}
+{% load custom_tags_personnel %}
 
 {% block title %}
 <style>
-#rso_table thead th,
-#rso_table tbody td
+#employee_table thead th,
+#employee_table tbody td
 {
     text-align: center;
 }
@@ -51,6 +52,35 @@
         </div>
         {% endif %}
         
+        <div class="col-md-12">
+            <table class="table table-striped tabled-bordered" id="employee_table">
+                <thead>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Designation</th>
+                        <th>Division</th>
+                        <th>Section</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for personnel in personnels %}
+                    <tr>
+                        <td>{{ personnel.personnel_id_number }}</td>
+                        <td>{{ personnel | fullname }}</td>
+                        <td>{{ personnel.personnel_position }}</td>
+                        <td>{{ personnel.personnel_designation | designation }}</td>
+                        <td>{{ personnel.personnel_division }}</td>
+                        <td>{{ personnel.personnel_section }}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 {% endblock %}
@@ -58,7 +88,7 @@
 {% block scripts %}
 <script>
     $(document).ready(function() {
-
+        $('#employee_table').DataTable()
     })
 </script>
 {% endblock %}

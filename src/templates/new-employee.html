@@ -38,7 +38,7 @@
 
 <section class="content">
     <div class="container-fluid py-2">
-        <form action="{% url 'add-employee' %}">
+        <form action="{% url 'add-employee' %}" method="POST">
             {% csrf_token %}
 
             <div class="row">
@@ -64,11 +64,19 @@
                     </div>
 
                     <div class="form-group">
-                        {{ personnel_form.groups | as_crispy_field }}
+                        {{ personnel_form.username | as_crispy_field }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.password | as_crispy_field }}
                     </div>
                 </div>
 
                 <div class="col-md-6">
+                    <div class="form-group">
+                        {{ personnel_form.groups | as_crispy_field }}
+                    </div>
+
                     <div class="form-group">
                         {{ personnel_form.division | as_crispy_field }}
                     </div>
@@ -92,6 +100,10 @@
                     <div class="form-group">
                         {{ personnel_form.signatory | as_crispy_field }}
                     </div>
+
+                    <div class="form-group">
+                        {{ personnel_form.date_joined | as_crispy_field }}
+                    </div>
                 </div>
             </div>
 
@@ -106,6 +118,17 @@
 {% block scripts %}
 <script>
     $(document).ready(function () {
+        $("#id_first_name").on("keyup", function() {
+            var first_name = $("#id_first_name").val().replace(/\s/g,'').toLowerCase();
+            var last_name = $("#id_last_name").val().replace(/\s/g,'').toLowerCase();
+            $("#id_username").val(first_name + "_" + last_name)
+        });
+
+        $("#id_last_name").on("keyup", function() {
+            var first_name = $("#id_first_name").val().replace(/\s/g,'').toLowerCase();
+            var last_name = $("#id_last_name").val().replace(/\s/g,'').toLowerCase();
+            $("#id_username").val(first_name + "_" + last_name)
+        });
     })
 </script>
 {% endblock %}
