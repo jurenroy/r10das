@@ -9,7 +9,7 @@ __pycache__/
 *.bak
 *.swp
 *.sql
-db.sqlite3
+src/db.sqlite3
 
 # Ignore environment variables and secrets (e.g., .env, .env.local, .env.secret)
 *.env
