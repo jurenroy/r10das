@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% load custom_tags_personnel %}
+
+{% block title %}
+<style>
+#employee_table thead th,
+#employee_table tbody td
+{
+    text-align: center;
+}
+</style>
+<title>List of Employees</title>
+{% endblock %}
+
+{% block sidebar_user %}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="{% static 'resources/img/user.png' %}" class="img-circle elevation-2" alt="User Image">
+    </div>
+
+    <div class="info">
+        <a href="#" class="d-block">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Bulk Upload</h1>
+            </div>
+            <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid py-2">
+        <form action="{% url 'bulk-upload' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="upload_data">Upload data</label>
+                <input type="file" name="upload" id="upload_data" class="form-control" required>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+
+    })
+</script>
+{% endblock %}

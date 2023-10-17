@@ -49,6 +49,8 @@
         {% if request.user|user_group == "admin" %}
         <div class="col-md-12 mb-3">
             <a href="{% url 'add-employee' %}" class="btn btn-info"><i class="fa fa-plus"></i> Add New Employee</a>
+
+            <a href="{% url 'bulk-upload' %}" class="btn btn-info"><i class="fa fa-plus"></i> Bulk upload</a>
         </div>
         {% endif %}
         

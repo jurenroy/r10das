@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
-from datetime import datetime
 from .models import *
 from .forms import *
 
@@ -77,3 +76,9 @@ def add_employee(request):
         'personnel_form': personnel_form
     }
     return render(request, 'new-employee.html', context)
+
+# For bulk upload
+def bulk_upload(request):
+
+    context = {}
+    return render(request, 'bulk_upload.html',context)
