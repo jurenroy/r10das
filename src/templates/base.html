@@ -69,11 +69,41 @@
                     data-accordion="false">
 
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{% url 'dashboard' %}" class="nav-link">
                             <i class="nav-icon fa fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
+                                </!-- <span class="badge badge-info right">2</span> -/->
+                            </p>
+                        </a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a href="{% url 'list-of-personnel' %}" class="nav-link">
+                            <i class="nav-icon fa fa-user-plus"></i>
+                            <p>
+                                Employee
+                                <!-- <span class="badge badge-info right">2</span> -->
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'list-rso' %}" class="nav-link">
+                            <i class="nav-icon fa fa-file"></i>
+                            <p>
+                                Special Order/Regional Special Order
+                                <!-- <span class="badge badge-info right">2</span> -->
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'list-to' %}" class="nav-link">
+                            <i class="nav-icon fa fa-plane"></i>
+                            <p>
+                                Travel Order
                                 <!-- <span class="badge badge-info right">2</span> -->
                             </p>
                         </a>

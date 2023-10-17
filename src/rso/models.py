@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 def rso_upload_path(instance, filename):
-    return "/".join(['media/rso', instance.rso_number, filename])
+    return "/".join(['rso', instance.rso_number, filename])
 
 class RSO(models.Model):
     rso_number                  = models.CharField(primary_key=True, default=None, blank=False, null=False, max_length=100, verbose_name="RSO Number")
