@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% load custom_tags_personnel %}
+
+{% block title %}
+<style>
+#employee_table thead th,
+#employee_table tbody td
+{
+    text-align: center;
+}
+</style>
+<title>List of Employees</title>
+{% endblock %}
+
+{% block sidebar_user %}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="{% static 'resources/img/user.png' %}" class="img-circle elevation-2" alt="User Image">
+    </div>
+
+    <div class="info">
+        <a href="#" class="d-block">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Mines and Geosciences Bureau - X List of Employees</h1>
+            </div>
+            <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid py-2">
+        {% if request.user|user_group == "admin" %}
+        <div class="col-md-12 mb-3">
+            <a href="{% url 'add-employee' %}" class="btn btn-info"><i class="fa fa-plus"></i> Add New Employee</a>
+        </div>
+        {% endif %}
+        
+        <div class="col-md-12">
+            <table class="table table-striped tabled-bordered" id="employee_table">
+                <thead>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Designation</th>
+                        <th>Division</th>
+                        <th>Section</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for personnel in personnels %}
+                    <tr>
+                        <td>{{ personnel.personnel_id_number }}</td>
+                        <td>{{ personnel | fullname }}</td>
+                        <td>{{ personnel.personnel_position }}</td>
+                        <td>{{ personnel.personnel_designation | designation }}</td>
+                        <td>{{ personnel.personnel_division }}</td>
+                        <td>{{ personnel.personnel_section }}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        $('#employee_table').DataTable()
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+# Ignore all Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore log and temporary files
+*.log
+*.pot
+*.pyo
+*.bak
+*.swp
+*.sql
+src/db.sqlite3
+
+# Ignore environment variables and secrets (e.g., .env, .env.local, .env.secret)
+*.env
+
+# Ignore the virtual environment directory (if you use virtualenv)
+venv/
+dasenv/
+.env/
+
+# Ignore development and text editor files
+*.vscode/
+.idea/
+*.suo
+*.ntvs*
+
+# Ignore Windows-specific files
+Thumbs.db
+ehthumbs.db
+
+# Ignore any other project-specific files or directories
