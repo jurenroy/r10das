@@ -26,7 +26,6 @@ DB_PASSWORD = config('DB_PASSWORD')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-# SECRET_KEY = 'django-insecure-l1fyl5g#3rl3hnhj7%c9ujb8u)s$^pnh6k17av1co55i@9xsxm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
