@@ -1,0 +1,72 @@
+﻿id,id_number,MI,division,section,user_id,signatory,position,station,suffix,designation
+2,31,Peligrino,1,3,2,0,Economist II,MGB-X Regional Office,,
+3,49,Paullo,1,2,3,0,Geologic Aide,MGB-X Regional Office,,
+4,26,Lusterio,1,13,4,0,Driver/Mechanic,MGB-X Regional Office,,
+5,48,Obemio,4,11,5,0,Administrative Officer V,MGB-X Regional Office,,
+6,3,Etang,1,13,6,0,Administrative Assistant III,MGB-X Regional Office,,
+7,30,Academia,3,15,7,0,Geologist,MGB-X Regional Office,,
+8,17,Ampong,5,1,8,0,System Network Administrator,MGB-X Regional Office,,
+9,1,Vidal,3,8,9,1,Supervising Geologist,MGB-X Regional Office,,SC
+10,22,Orina,3,15,10,0,GIS Specialist B,MGB-X Regional Office,,
+11,70,Caamiño,5,1,11,0,Administrative Assistant IV,MGB-X Regional Office,,
+12,62,Moralidad,5,1,12,0,Science Research Specialist II,Bukidnon,,
+13,64,Dimasangca,2,6,13,1,Supervising Science Research Specialist,MGB-X Regional Office,,SC
+14,34,Bella,3,10,14,0,Geologist II,MGB-X Regional Office,,
+15,27,Belono,4,11,15,0,Administrative Officer III,MGB-X Regional Office,,
+16,23,Gamba,4,11,16,0,Office Support Staff/Utility Worker,MGB-X Regional Office,,
+17,90,Calingacion,5,1,17,0,Science Research Specialist II,Misamis Occidental,,
+18,83,Naranjo,3,9,18,1,Supervising Geologist,MGB-X Regional Office,,SC
+19,76,Mondaya,5,1,19,0,Science Research Specialist II,Lanao del Norte,,
+20,60,Codog,1,3,20,0,Engineer II,MGB-X Regional Office,,
+21,101,Cortez,5,1,21,0,Administrative Officer III,MGB-X Regional Office,,
+22,57,Fariñas,2,5,22,0,Senior Science Research Specialist,MGB-X Regional Office,IV,
+23,92,Callejo,5,1,23,0,Science Research Specialist II,Misamis Oriental,,
+24,29,Pedrosa,2,7,24,0,Senior Science Research Specialist,MGB-X Regional Office,,
+25,41,Fernandez,5,1,25,1,Attorney III,MGB-X Regional Office,,
+26,16,Regalado,2,7,26,0,Community Affairs Officer II,MGB-X Regional Office,,
+27,11,Maagad,5,1,27,0,Administrative Assistant III,MGB-X Regional Office,,
+28,54,Bucag,4,16,28,1,Chief Administrative Officer,MGB-X Regional Office,,DC
+29,78,Honculada,2,14,29,0,Administrative Assistant III,MGB-X Regional Office,,
+30,8,Hambre,2,6,30,0,Senior Science Research Specialist,MGB-X Regional Office,,
+31,13,Lisondra,3,15,31,0,Geologic Aide,MGB-X Regional Office,,
+32,24,Orquillas,4,11,32,0,Administrative Assistant III,MGB-X Regional Office,,
+33,68,D,2,6,33,0,Engineer II,MGB-X Regional Office,,
+34,72,Barbieto,5,1,34,1,Chief Science Research Specialist,MGB-X Regional Office,,RD
+35,95,Binatlao,1,13,35,1,Engineer V,MGB-X Regional Office,,DC
+36,93,Saavedra,4,12,36,0,Accounting Clerk,MGB-X Regional Office,,
+37,56,Ebora,1,4,37,0,Cartographer II,MGB-X Regional Office,,
+38,89,Marcojos,5,1,38,0,Science Research Specialist II,Camiguin,,
+39,32,Zamora,3,15,39,0,GIS Specialist B,MGB-X Regional Office,,
+40,52,Alenton,4,12,40,0,Budget Officer,MGB-X Regional Office,,
+41,6,Zayas,4,11,41,0,Administrative Assistant II,MGB-X Regional Office,,
+42,96,Deniega,4,12,42,0,Administrative Assistant II,MGB-X Regional Office,,
+43,4,Mata,4,12,43,0,Administrative Officer III,MGB-X Regional Office,,
+44,45,Canlas,1,4,44,0,Geologic Aide,MGB-X Regional Office,,
+45,85,Galos,4,11,45,0,Procurement Assistant,MGB-X Regional Office,,
+46,53,Oco,1,2,46,0,Mining Claims Examiner II,MGB-X Regional Office,,
+47,59,,1,3,47,1,Engineer III,MGB-X Regional Office,,SC
+48,46,Ruma,4,11,48,0,Administrative Officer III,MGB-X Regional Office,,
+49,81,Prones,2,6,49,0,Senior Environmental Management Specialist,MGB-X Regional Office,,
+50,88,Benlot,4,11,50,0,Office Support Staff/Utility Worker,MGB-X Regional Office,,
+51,69,Mabitag,4,11,51,0,Office Support Staff/Utility Worker,MGB-X Regional Office,,
+52,18,Navarro,3,9,52,0,Senior Geologist,MGB-X Regional Office,,
+53,86,Biego,3,10,53,0,Senior Geologist,MGB-X Regional Office,,
+54,51,Noot,3,15,54,0,Cartographer II,MGB-X Regional Office,,
+55,9,Paraiso,1,2,55,1,Engineer III,MGB-X Regional Office,,SC
+56,20,Acosta,4,12,56,0,Administrative Assistant III,MGB-X Regional Office,,
+57,28,Lastimosa,1,4,57,1,Engineer IV,MGB-X Regional Office,Jr.,SC
+58,10,Fundal,5,1,58,0,Planning Officer II,MGB-X Regional Office,,
+59,21,Paceño,1,3,59,0,Engineer II,MGB-X Regional Office,,
+60,33,Chiong,4,12,60,1,Accountant III,MGB-X Regional Office,,SC
+61,12,Mira,3,8,61,0,Geologist II,MGB-X Regional Office,,
+62,15,Sia,3,15,62,0,Administrative Assistant III,MGB-X Regional Office,,
+63,80,Villareal,1,2,63,0,Engineer II,MGB-X Regional Office,,
+64,82,Galero,3,10,64,1,Supervising Geologist,MGB-X Regional Office,,SC
+65,91,Cerna,3,8,65,0,Senior Geologist,MGB-X Regional Office,,
+66,66,Acapulco,1,4,66,0,Engineer III,MGB-X Regional Office,,
+67,35,Abas,3,15,67,1,Chief Geologist,MGB-X Regional Office,Jr.,DC
+68,100,Polinar,5,1,68,0,IT Specialist,MGB-X Regional Office,,
+69,25,Penecitos,1,2,69,0,Mining Claims Examiner III,MGB-X Regional Office,,
+70,43,Rosios,2,7,70,1,Supervising Science Research Specialist,MGB-X Regional Office,,SC
+71,63,Mariano,2,14,71,1,Supervising Science Research Specialist,MGB-X Regional Office,,DC
+72,55,Malaque,3,15,72,0,Geologist,MGB-X Regional Office,,

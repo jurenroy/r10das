@@ -7,7 +7,7 @@ from .forms import *
 def list_of_personnel(request):
 
     # Retrieve list of personnel sorted by id number
-    personnels = Personnel.objects.select_related('user')
+    personnels = Personnel.objects.select_related('user').order_by('user__last_name')
 
     context = {
         'personnels': personnels
@@ -76,9 +76,3 @@ def add_employee(request):
         'personnel_form': personnel_form
     }
     return render(request, 'new-employee.html', context)
-
-# For bulk upload
-def bulk_upload(request):
-
-    context = {}
-    return render(request, 'bulk_upload.html',context)

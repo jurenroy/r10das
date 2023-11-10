@@ -10,6 +10,10 @@
 {
     text-align: center;
 }
+
+#employee_table tbody td:nth-child(2) {
+    text-align: left;
+}
 </style>
 <title>List of Employees</title>
 {% endblock %}
@@ -49,8 +53,6 @@
         {% if request.user|user_group == "admin" %}
         <div class="col-md-12 mb-3">
             <a href="{% url 'add-employee' %}" class="btn btn-info"><i class="fa fa-plus"></i> Add New Employee</a>
-
-            <a href="{% url 'bulk-upload' %}" class="btn btn-info"><i class="fa fa-plus"></i> Bulk upload</a>
         </div>
         {% endif %}
         
@@ -72,7 +74,7 @@
                     {% for personnel in personnels %}
                     <tr>
                         <td>{{ personnel.personnel_id_number }}</td>
-                        <td>{{ personnel | fullname }}</td>
+                        <td>{{ personnel }}</td>
                         <td>{{ personnel.personnel_position }}</td>
                         <td>{{ personnel.personnel_designation | designation }}</td>
                         <td>{{ personnel.personnel_division }}</td>
@@ -90,7 +92,9 @@
 {% block scripts %}
 <script>
     $(document).ready(function() {
-        $('#employee_table').DataTable()
+        $('#employee_table').DataTable({
+            'sort': false,
+        })
     })
 </script>
 {% endblock %}
