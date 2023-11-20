@@ -9,7 +9,10 @@ def signin(request):
 
     if request.POST:
         user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
-        if user is not None:
+        if user is not None and user.last_login is None:
+            login(request, user)
+            return redirect('change-password')
+        elif user is not None and user.last_login is not None:
             login(request, user)
             return redirect('dashboard')
         else:

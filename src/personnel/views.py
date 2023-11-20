@@ -1,5 +1,8 @@
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import *
 from .forms import *
 
@@ -76,3 +79,24 @@ def add_employee(request):
         'personnel_form': personnel_form
     }
     return render(request, 'new-employee.html', context)
+
+# Change password
+def change_password(request):
+
+    form = PasswordChangeForm(request.user)
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, "Your password has been updated.")
+            return redirect('change-password')
+        else:
+            messages.error(request, 'Please correct the error below.')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'change-password.html', context)
