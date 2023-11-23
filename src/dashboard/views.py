@@ -9,8 +9,6 @@ from das.decorators import allowed_users
 def dashboard(request):
     context = {}
 
-    print(request.user.groups.all()[0].name)
-
     if request.user.groups.all()[0].name == 'user':
         return redirect('list-rso')
     else:
