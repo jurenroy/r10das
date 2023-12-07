@@ -100,3 +100,9 @@ def change_password(request):
     }
 
     return render(request, 'change-password.html', context)
+
+# 201 Files
+def personal_files(request):
+
+    context = {}
+    return render(request, '201-files-user.html', context)

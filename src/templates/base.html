@@ -112,6 +112,18 @@
                         </a>
                     </li>
 
+                    {% if request.user|user_group == "user"  %}
+                    <li class="nav-item">
+                        <a href="{% url '201-files' %}" class="nav-link">
+                            <i class="nav-icon fa fa-file"></i>
+                            <p>
+                                201 Files
+                                <!-- <span class="badge badge-info right">2</span> -->
+                            </p>
+                        </a>
+                    </li>
+                    {% endif %}
+
                     <li class="nav-item">
                         <a href="{% url 'logout' %}" class="nav-link">
                             <i class="nav-icon fa fa-sign-out-alt"></i>
