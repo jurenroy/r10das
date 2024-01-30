@@ -30,3 +30,4 @@ Thumbs.db
 ehthumbs.db
 
 # Ignore any other project-specific files or directories
+./src/media
