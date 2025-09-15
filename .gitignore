@@ -12,7 +12,7 @@ __pycache__/
 src/db.sqlite3
 
 # Ignore environment variables and secrets (e.g., .env, .env.local, .env.secret)
-*.env
+# *.env
 
 # Ignore the virtual environment directory (if you use virtualenv)
 venv/
